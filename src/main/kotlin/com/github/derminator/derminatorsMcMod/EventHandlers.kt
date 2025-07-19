@@ -1,16 +1,20 @@
 package com.github.derminator.derminatorsMcMod
 
+import net.minecraft.network.chat.Component
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.item.Items
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.neoforge.event.entity.player.PlayerEvent
-import org.slf4j.LoggerFactory
 
 object EventHandlers {
-    private val LOGGER = LoggerFactory.getLogger(EventHandlers::class.java)
-
     @SubscribeEvent
     fun onPlayerJoin(event: PlayerEvent.PlayerLoggedInEvent) {
         val player = event.entity
 
-        LOGGER.info("Player ${player.name.contents} joined the game")
+        // Send welcome message
+        player.sendSystemMessage(Component.literal("Welcome to the server; here's a stick!"))
+
+        // Add a stick to player's inventory
+        player.inventory.add(ItemStack(Items.STICK))
     }
 }
