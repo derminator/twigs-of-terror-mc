@@ -11,6 +11,6 @@ object DerminatorsMcMod {
     const val ID = "derminators_mc_mod"
 
     init {
-        NeoForge.EVENT_BUS.register(ServerEvents)
+        NeoForge.EVENT_BUS.register(EventHandlers)
     }
 }
