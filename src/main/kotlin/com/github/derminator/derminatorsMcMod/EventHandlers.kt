@@ -21,31 +21,14 @@ object EventHandlers {
      * @param username The player's username
      * @return Number of ticks to wait before giving another stick
      */
-    fun calculateStickWaitTime(username: String): Int {
-        val normalizedValue = hashUsername(username)
-
+    private fun calculateStickWaitTime(username: String): Int {
+        val normalizedValue = 1 - getUserEventProbability(username)
 
         // Calculate ticks between MIN_WAIT_TICKS and MAX_WAIT_TICKS
         val waitTicks = MIN_WAIT_TICKS + (normalizedValue * (MAX_WAIT_TICKS - MIN_WAIT_TICKS)).toInt()
 
         // Ensure the result is within bounds
         return max(MIN_WAIT_TICKS, min(waitTicks, MAX_WAIT_TICKS))
-    }
-
-    private fun hashUsername(username: String): Double {
-        // Use FNV-1a hash algorithm for better distribution and determinism
-        // FNV-1a constants for 32-bit hash
-        val FNV_PRIME = 16777619
-        val FNV_OFFSET_BASIS = 2166136261u
-
-        // Calculate FNV-1a hash
-        var hash = FNV_OFFSET_BASIS
-        for (char in username) {
-            hash = (hash xor char.code.toUInt()) * FNV_PRIME.toUInt()
-        }
-
-        val normalizedValue = (hash.toInt() % 3571) / 3571.0
-        return normalizedValue
     }
 
     @SubscribeEvent
