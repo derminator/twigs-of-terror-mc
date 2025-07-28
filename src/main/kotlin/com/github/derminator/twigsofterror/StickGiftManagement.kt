@@ -27,11 +27,11 @@ private const val MAX_DITHER_HOURS = 1.0
 private const val MIN_DITHER_HOURS = -MAX_DITHER_HOURS
 
 /**
- * Determines how many ticks between stick gifts a player should wait based on their username.
+ * Determines how many long between stick gifts a player should wait based on their username.
  * Results range from 5 minutes to 5 hours.
  *
  * @param username The player's username
- * @return Number of ticks to wait before giving another stick
+ * @return Duration to wait before giving another stick
  */
 private fun calculateStickWaitTime(username: String): Duration {
     val normalizedValue = 1 - getUserEventProbability(username)
