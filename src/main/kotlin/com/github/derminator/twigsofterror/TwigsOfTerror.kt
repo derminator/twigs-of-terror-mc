@@ -1,4 +1,4 @@
-package com.github.derminator.derminatorsMcMod
+package com.github.derminator.twigsofterror
 
 import net.neoforged.fml.common.Mod
 import net.neoforged.neoforge.common.NeoForge
@@ -6,9 +6,9 @@ import net.neoforged.neoforge.common.NeoForge
 /**
  * Main mod class.
  */
-@Mod(DerminatorsMcMod.ID)
-object DerminatorsMcMod {
-    const val ID = "derminators_mc_mod"
+@Mod(TwigsOfTerror.ID)
+object TwigsOfTerror {
+    const val ID = "twigs_of_terror"
 
     init {
         NeoForge.EVENT_BUS.register(EventHandlers)

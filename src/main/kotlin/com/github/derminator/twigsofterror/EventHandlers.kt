@@ -1,4 +1,4 @@
-package com.github.derminator.derminatorsMcMod
+package com.github.derminator.twigsofterror
 
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.Items

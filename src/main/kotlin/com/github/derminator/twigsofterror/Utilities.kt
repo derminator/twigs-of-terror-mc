@@ -1,4 +1,4 @@
-package com.github.derminator.derminatorsMcMod
+package com.github.derminator.twigsofterror
 
 // FNV-1a constants for 32-bit hash
 private const val FNV_PRIME = 16777619
