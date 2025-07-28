@@ -35,8 +35,6 @@ private const val MIN_DITHER_HOURS = -MAX_DITHER_HOURS
  */
 private fun calculateStickWaitTime(username: String): Duration {
     val normalizedValue = 1 - getUserEventProbability(username)
-
-    // Calculate ticks between MIN_WAIT_TICKS and MAX_WAIT_TICKS
     val waitTime = MIN_WAIT + WAIT_RANGE * normalizedValue + Random.nextDouble(MIN_DITHER_HOURS, 1.0).hours
 
     // Ensure the result is within bounds
